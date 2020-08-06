@@ -1,16 +1,25 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
+    # print(f"start:\t{arr}")
     for i in range(0, len(arr) - 1):
         cur_index = i
         smallest_index = cur_index
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
-
-
+        # print(f"curr:\t{arr[i]}")
+        for j in range(i+1, len(arr)):
+            # print(f"check:\t{arr[j]}\tsmall?:\t{arr[j] < arr[smallest_index]}")
+            if arr[j] < arr[smallest_index]:
+                smallest_index = j
+        # print(f"small:\t{arr[smallest_index]}")
         # TO-DO: swap
         # Your code here
+        temp = arr[i]
+        arr[i] = arr[smallest_index]
+        arr[smallest_index] = temp
+    # print(f"end:\t{arr}")
 
     return arr
 
@@ -19,6 +28,13 @@ def selection_sort(arr):
 def bubble_sort(arr):
     # Your code here
 
+    # loop through indexes
+        # compare neighbors
+        # swap if neighbors out of order (WRT each other)
+        # increment 1 index at a time
+    # we are done if/when a loop results in no swaps
+
+    # may be able to achieve in a single loop
 
     return arr
 
