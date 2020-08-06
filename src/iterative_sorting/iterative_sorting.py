@@ -27,14 +27,33 @@ def selection_sort(arr):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
-
+    swapped = True
+    lastUnsorted = len(arr) + 1
+    # print(f"\nlen:\t{lastUnsorted - 1}")
     # loop through indexes
+    while swapped:
+        # print(f"\nbegin:\t{arr}")
+        swapped = False
         # compare neighbors
-        # swap if neighbors out of order (WRT each other)
+        for right in range(1, lastUnsorted - 1):
+            # swap if neighbors out of order (WRT each other)
+            left = right - 1
+            # print(f"\tfor {right} in range(1, {lastUnsorted - 1}):\tleft:\t{arr[left]}\tright:\t{arr[right]}\tswap?:\t{arr[left] > arr[right]}")
+            if arr[left] > arr[right]:
+                temp = arr[left]
+                arr[left] = arr[right]
+                arr[right] = temp
+                # print(f"swap!:\t{arr}")
+                swapped = True
+                # break
         # increment 1 index at a time
+        lastUnsorted -= 1
+        # print(f"reduced limit")
     # we are done if/when a loop results in no swaps
+    # print(f"\nend:\t{arr}\n")
 
-    # may be able to achieve in a single loop
+    # achievable in a single loop?
+    # YES?
 
     return arr
 
