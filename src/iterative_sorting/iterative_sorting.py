@@ -1,16 +1,25 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
+    # print(f"start:\t{arr}")
     for i in range(0, len(arr) - 1):
         cur_index = i
         smallest_index = cur_index
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
-
-
+        # print(f"curr:\t{arr[i]}")
+        for j in range(i+1, len(arr)):
+            # print(f"check:\t{arr[j]}\tsmall?:\t{arr[j] < arr[smallest_index]}")
+            if arr[j] < arr[smallest_index]:
+                smallest_index = j
+        # print(f"small:\t{arr[smallest_index]}")
         # TO-DO: swap
         # Your code here
+        temp = arr[i]
+        arr[i] = arr[smallest_index]
+        arr[smallest_index] = temp
+    # print(f"end:\t{arr}")
 
     return arr
 
@@ -18,7 +27,33 @@ def selection_sort(arr):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    swapped = True
+    lastUnsorted = len(arr) + 1
+    # print(f"\nlen:\t{lastUnsorted - 1}")
+    # loop through indexes
+    while swapped:
+        # print(f"\nbegin:\t{arr}")
+        swapped = False
+        # compare neighbors
+        for right in range(1, lastUnsorted - 1):
+            # swap if neighbors out of order (WRT each other)
+            left = right - 1
+            # print(f"\tfor {right} in range(1, {lastUnsorted - 1}):\tleft:\t{arr[left]}\tright:\t{arr[right]}\tswap?:\t{arr[left] > arr[right]}")
+            if arr[left] > arr[right]:
+                temp = arr[left]
+                arr[left] = arr[right]
+                arr[right] = temp
+                # print(f"swap!:\t{arr}")
+                swapped = True
+                # break
+        # increment 1 index at a time
+        lastUnsorted -= 1
+        # print(f"reduced limit")
+    # we are done if/when a loop results in no swaps
+    # print(f"\nend:\t{arr}\n")
 
+    # achievable in a single loop?
+    # YES?
 
     return arr
 
